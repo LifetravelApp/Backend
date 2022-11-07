@@ -1,8 +1,11 @@
-package com.api.lifetravel.trip_plan.domain.model.entity;
+package com.api.lifetravel.trip_plan.resource;
+
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,20 +15,15 @@ import javax.validation.constraints.Size;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table (name = "packages")
-public class Package {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CreatePlanResource {
 
     @ManyToOne
-    @JoinColumn (name = "agency_id")
+    @JoinColumn(name = "agency_id")
     private Agency agency;
     /*
     @OneToMany
     @JoinColumn (name = "reviews_id")
-    private Reviews reviews;
+    private ;
     */
     @NotNull
     @NotBlank
