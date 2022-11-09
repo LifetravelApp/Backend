@@ -1,4 +1,5 @@
 package com.api.lifetravel.review.resource;
+import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import lombok.*;
 
 import java.sql.Date;
@@ -12,8 +13,8 @@ import java.sql.Date;
 public class ReviewResource {
     private Long id;
     //private Traveler traveler;
-    //private Plan plan;
+    private Plan plan;
     private Date date;
-    private int ranking;
+    private String rating;
     private String comment;
 }
