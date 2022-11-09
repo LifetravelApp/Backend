@@ -21,4 +21,9 @@ public class Payment {
         @OneToOne
         @JoinColumn (name= "package_id")
         private Plan plan;
+
+        /*@ManyToOne
+        @JoinColumn (name= "traveler_id")
+        private Traveler traveler;*/
+
 }

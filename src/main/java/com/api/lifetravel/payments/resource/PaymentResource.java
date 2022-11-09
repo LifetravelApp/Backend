@@ -12,5 +12,6 @@ import lombok.*;
 public class PaymentResource {
     private Long id;
     private Plan plan;
+    /* private Traveler traveler;*/
 
 }

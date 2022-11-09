@@ -1,6 +1,6 @@
 package com.api.lifetravel.trip_plan.resource;
 
-import com.api.lifetravel.users.domain.model.entity.Agency;
+    import com.api.lifetravel.users.domain.model.entity.Agency;
 import lombok.*;
 
 import javax.persistence.Column;
