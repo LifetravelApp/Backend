@@ -31,4 +31,8 @@ public class ResourceValidationException extends RuntimeException {
     public ResourceValidationException(String resourceName, String message) {
         super(String.format("Not all constraints satisfied for %s: %s", resourceName, message));
     }
+
+    public ResourceValidationException(String entity, String id, Long id1) {
+        super(String.format("Not all constraints satisfied for %s: %s", entity, id));
+    }
 }

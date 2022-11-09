@@ -38,4 +38,29 @@ public class AgencyServiceImpl implements AgencyService{
         return agencyRepository.save(agency);
     }
 
+    @Override
+    public Agency update(Long id, Agency agencyInput) {
+        // Validating agency object
+        Set<ConstraintViolation<Agency>> violations = validator.validate(agencyInput);
+
+        if (!violations.isEmpty()) {
+            throw new ResourceValidationException(ENTITY, violations);
+        }
+
+        Agency agency = agencyRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
+
+        agency.setName(agencyInput.getName());
+        agency.setEmail(agencyInput.getEmail());
+        agency.setRuc(agencyInput.getRuc());
+
+        return agencyRepository.save(agency);
+    }
+
+    @Override
+    public Agency delete(Long id) {
+        Agency agency = agencyRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
+        agencyRepository.delete(agency);
+        return agency;
+    }
+
 }

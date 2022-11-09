@@ -10,4 +10,7 @@ public interface AgencyService{
 
     Agency create(Agency agency);
 
+    Agency update(Long id, Agency agencyInput);
+
+    Agency delete(Long id);
 }
