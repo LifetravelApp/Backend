@@ -8,4 +8,8 @@ public interface PlanService {
 
     List<Plan> getAll();
     Plan create(Plan plan);
+
+    Plan update(Long id, Plan planInput);
+
+    Plan delete(Long id);
 }

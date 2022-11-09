@@ -1,8 +1,6 @@
 package com.api.lifetravel.review.domain.model.entity;
-
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -21,17 +19,21 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Column(unique = true)
-    private Date date;
-
-//    @ManyToOne
-//    @JoinColumn (name = "traveler_id")
-//    private Traveler traveler;
-
     @ManyToOne
     @JoinColumn (name = "package_id")
     private Plan plan;
+
+    @NotNull
+    @NotBlank
+    @Column(unique = true)
+    private Date date;
+
+    @ManyToOne
+    @JoinColumn (name = "traveler_id")
+    private Traveler traveler;
+    
+    @Column(unique = true)
+    private Date date;
 
     @NotNull
     @Column

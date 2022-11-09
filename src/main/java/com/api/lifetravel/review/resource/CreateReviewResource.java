@@ -18,8 +18,6 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateReviewResource {
-
-
     @ManyToOne
     @JoinColumn(name = "package_id")
     private Plan plan;
@@ -38,6 +36,5 @@ public class CreateReviewResource {
     @NotBlank
     @Size(max= 300)
     private String comment;
-
 
 }

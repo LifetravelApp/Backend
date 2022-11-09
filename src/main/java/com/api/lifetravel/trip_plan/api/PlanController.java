@@ -5,6 +5,8 @@ import com.api.lifetravel.trip_plan.domain.service.PlanService;
 import com.api.lifetravel.trip_plan.mapping.PlanMapper;
 import com.api.lifetravel.trip_plan.resource.CreatePlanResource;
 import com.api.lifetravel.trip_plan.resource.PlanResource;
+
+
 import io.swagger.v3.oas.annotations.Operation;
 
 import lombok.AllArgsConstructor;
@@ -37,6 +39,21 @@ public class PlanController {
         return new ResponseEntity<>(planResource , HttpStatus.CREATED);//201
 
 
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PlanResource> updatePlan(@PathVariable Long id, @RequestBody CreatePlanResource resource) {
+        Plan planInput = planMapper.toModel(resource);
+        Plan planSaved = planService.update(id, planInput);
+        PlanResource planResource = planMapper.toResource(planSaved);
+        return new ResponseEntity<>(planResource, HttpStatus.OK); // 200
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<PlanResource> deletePlan(@PathVariable Long id) {
+        Plan plan = planService.delete(id);
+        PlanResource planResource = planMapper.toResource(plan);
+        return new ResponseEntity<>(planResource, HttpStatus.OK); // 200
     }
 
 
