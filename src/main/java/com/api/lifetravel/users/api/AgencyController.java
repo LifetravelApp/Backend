@@ -33,11 +33,26 @@ public class AgencyController {
     }
 
     @PostMapping
-    public ResponseEntity<AgencyResource> createTeacher(@RequestBody CreateAgencyResource resource) {
+    public ResponseEntity<AgencyResource> createAgency(@RequestBody CreateAgencyResource resource) {
         Agency agencyInput = agencyMapper.toModel(resource);
         Agency agencySaved = agencyService.create(agencyInput);
         AgencyResource agencyResource = agencyMapper.toResource(agencySaved);
         return new ResponseEntity<>(agencyResource, HttpStatus.CREATED); // 201
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<AgencyResource> updateAgency(@PathVariable Long id, @RequestBody CreateAgencyResource resource) {
+        Agency agencyInput = agencyMapper.toModel(resource);
+        Agency agencySaved = agencyService.update(id, agencyInput);
+        AgencyResource agencyResource = agencyMapper.toResource(agencySaved);
+        return new ResponseEntity<>(agencyResource, HttpStatus.OK); // 200
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<AgencyResource> deleteAgency(@PathVariable Long id) {
+        Agency agency = agencyService.delete(id);
+        AgencyResource agencyResource = agencyMapper.toResource(agency);
+        return new ResponseEntity<>(agencyResource, HttpStatus.OK); // 200
     }
 
 }
