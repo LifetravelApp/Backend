@@ -1,5 +1,6 @@
 package com.api.lifetravel.review.domain.model.entity;
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
+import com.api.lifetravel.users.domain.model.entity.Traveler;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -32,9 +33,6 @@ public class Review {
     @JoinColumn (name = "traveler_id")
     private Traveler traveler;
     
-    @Column(unique = true)
-    private Date date;
-
     @NotNull
     @Column
     @NotBlank

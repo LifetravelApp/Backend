@@ -37,8 +37,6 @@ public class PlanController {
         Plan planSaved = planService.create(planInput);
         PlanResource planResource = planMapper.toResource(planSaved);
         return new ResponseEntity<>(planResource , HttpStatus.CREATED);//201
-
-
     }
 
     @PutMapping("/{id}")
