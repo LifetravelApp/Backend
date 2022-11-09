@@ -1,14 +1,13 @@
 package com.api.lifetravel.review.domain.model.entity;
 
-
+import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import lombok.*;
-
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.sql.Date;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -23,24 +22,21 @@ public class Review {
     private Long id;
 
     @NotNull
-    @NotBlank
     @Column(unique = true)
     private Date date;
 
-
-    /*@ManyToOne
-    @JoinColumn (name = "traveler_id")
-    private Traveler traveler;
+//    @ManyToOne
+//    @JoinColumn (name = "traveler_id")
+//    private Traveler traveler;
 
     @ManyToOne
     @JoinColumn (name = "package_id")
     private Plan plan;
-    */
 
     @NotNull
     @Column
     @NotBlank
-    private int rating;
+    private String rating;
 
     @Column
     @NotBlank

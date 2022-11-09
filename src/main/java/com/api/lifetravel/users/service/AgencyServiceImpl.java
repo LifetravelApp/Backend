@@ -4,7 +4,6 @@ import com.api.lifetravel.shared.exception.ResourceValidationException;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import com.api.lifetravel.users.domain.persistence.AgencyRepository;
 import com.api.lifetravel.users.domain.service.AgencyService;
-
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
