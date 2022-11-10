@@ -1,11 +1,13 @@
 package com.api.lifetravel.trip_plan.resource;
 
+import com.api.lifetravel.transports.domain.model.entity.Transport;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -20,6 +22,11 @@ public class CreatePlanResource {
     @ManyToOne
     @JoinColumn(name = "agency_id")
     private Agency agency;
+
+    @OneToOne
+    @JoinColumn(name = "transport_id")
+    private Transport transport;
+
     /*
     @OneToMany
     @JoinColumn (name = "reviews_id")
