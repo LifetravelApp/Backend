@@ -43,8 +43,8 @@ public class AgencyController {
     @PutMapping("/{id}")
     public ResponseEntity<AgencyResource> updateAgency(@PathVariable Long id, @RequestBody CreateAgencyResource resource) {
         Agency agencyInput = agencyMapper.toModel(resource);
-        Agency agencySaved = agencyService.update(id, agencyInput);
-        AgencyResource agencyResource = agencyMapper.toResource(agencySaved);
+        Agency agencyUpdated = agencyService.update(id, agencyInput);
+        AgencyResource agencyResource = agencyMapper.toResource(agencyUpdated);
         return new ResponseEntity<>(agencyResource, HttpStatus.OK); // 200
     }
 

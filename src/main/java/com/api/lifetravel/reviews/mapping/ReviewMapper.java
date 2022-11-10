@@ -1,8 +1,8 @@
-package com.api.lifetravel.review.mapping;
+package com.api.lifetravel.reviews.mapping;
 
-import com.api.lifetravel.review.domain.model.entity.Review;
-import com.api.lifetravel.review.resource.CreateReviewResource;
-import com.api.lifetravel.review.resource.ReviewResource;
+import com.api.lifetravel.reviews.domain.model.entity.Review;
+import com.api.lifetravel.reviews.resource.CreateReviewResource;
+import com.api.lifetravel.reviews.resource.ReviewResource;
 import com.api.lifetravel.shared.mapping.EnhancedModelMapper;
 
 import lombok.AllArgsConstructor;

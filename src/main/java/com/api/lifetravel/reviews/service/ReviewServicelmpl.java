@@ -1,8 +1,8 @@
-package com.api.lifetravel.review.service;
+package com.api.lifetravel.reviews.service;
 
-import com.api.lifetravel.review.domain.model.entity.Review;
-import com.api.lifetravel.review.domain.persistence.ReviewRepository;
-import com.api.lifetravel.review.domain.service.ReviewService;
+import com.api.lifetravel.reviews.domain.model.entity.Review;
+import com.api.lifetravel.reviews.domain.persistence.ReviewRepository;
+import com.api.lifetravel.reviews.domain.service.ReviewService;
 import com.api.lifetravel.shared.exception.ResourceValidationException;
 
 import lombok.AllArgsConstructor;

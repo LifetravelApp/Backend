@@ -54,7 +54,7 @@ public class PlanServiceImpl implements PlanService {
         plan.setTypeOfTour(planInput.getTypeOfTour());
         plan.setCapacity(planInput.getCapacity());
         plan.setDisponibility(plan.getDisponibility());
-        plan.setImage(plan.getImage());
+        plan.setAgency(plan.getAgency());
 
         return planRepository.save(plan);
     }

@@ -1,11 +1,11 @@
-package com.api.lifetravel.review.api;
+package com.api.lifetravel.reviews.api;
 
-import com.api.lifetravel.review.domain.model.entity.Review;
-import com.api.lifetravel.review.domain.service.ReviewService;
-import com.api.lifetravel.review.mapping.ReviewMapper;
+import com.api.lifetravel.reviews.domain.model.entity.Review;
+import com.api.lifetravel.reviews.domain.service.ReviewService;
+import com.api.lifetravel.reviews.mapping.ReviewMapper;
 
-import com.api.lifetravel.review.resource.CreateReviewResource;
-import com.api.lifetravel.review.resource.ReviewResource;
+import com.api.lifetravel.reviews.resource.CreateReviewResource;
+import com.api.lifetravel.reviews.resource.ReviewResource;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 

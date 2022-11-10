@@ -1,4 +1,4 @@
-package com.api.lifetravel.review.domain.model.entity;
+package com.api.lifetravel.reviews.domain.model.entity;
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.api.lifetravel.users.domain.model.entity.Traveler;
 import lombok.*;
