@@ -1,11 +1,10 @@
 package com.api.lifetravel.reviews.resource;
 
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
+import com.api.lifetravel.users.domain.model.entity.Traveler;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -17,14 +16,18 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateReviewResource {
-    @ManyToOne
-    @JoinColumn(name = "package_id")
+
+    @NotNull
+    @NotBlank
     private Plan plan;
 
     @NotNull
     @NotBlank
+    private Traveler traveler;
+
+    @NotNull
     @Column(unique = true)
-    private Date date;
+    private String date;
 
     @NotNull
     @Column
@@ -35,5 +38,6 @@ public class CreateReviewResource {
     @NotBlank
     @Size(max= 300)
     private String comment;
+
 
 }

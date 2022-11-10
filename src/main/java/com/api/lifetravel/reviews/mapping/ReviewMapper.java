@@ -3,6 +3,7 @@ package com.api.lifetravel.reviews.mapping;
 import com.api.lifetravel.reviews.domain.model.entity.Review;
 import com.api.lifetravel.reviews.resource.CreateReviewResource;
 import com.api.lifetravel.reviews.resource.ReviewResource;
+import com.api.lifetravel.reviews.resource.ReviewResourceId;
 import com.api.lifetravel.shared.mapping.EnhancedModelMapper;
 
 import lombok.AllArgsConstructor;
@@ -27,8 +28,12 @@ public class ReviewMapper implements Serializable {
         return new ReviewMapper(modelMapper);
     }
 
-    public Page<ReviewResource> modelListPage(List<Review> modelList, Pageable pageable) {
-        return new PageImpl<>(modelMapper.mapList(modelList, ReviewResource.class), pageable, modelList.size());
+//    public Page<ReviewResource> modelListPage(List<Review> modelList, Pageable pageable) {
+//        return new PageImpl<>(modelMapper.mapList(modelList, ReviewResource.class), pageable, modelList.size());
+//    }
+
+    public Page<ReviewResourceId> modelListPageId(List<Review> modelList, Pageable pageable) {
+        return new PageImpl<>(modelMapper.mapList(modelList, ReviewResourceId.class), pageable, modelList.size());
     }
 
     public Review toModel(CreateReviewResource resource) {

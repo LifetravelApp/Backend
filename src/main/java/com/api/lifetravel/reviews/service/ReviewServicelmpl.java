@@ -17,7 +17,6 @@ import java.util.Set;
 @AllArgsConstructor
 public class ReviewServicelmpl implements ReviewService {
 
-
     private static final String ENTITY = "Review";
     private final ReviewRepository reviewRepository;
     private final Validator validator;

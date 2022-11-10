@@ -1,7 +1,9 @@
 package com.api.lifetravel.reviews.resource;
-import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
-import com.api.lifetravel.users.domain.model.entity.Traveler;
+
+import com.api.lifetravel.trip_plan.resource.PlanResourceId;
+import com.api.lifetravel.users.resource.TravelerResourceId;
 import lombok.*;
+
 import java.sql.Date;
 
 @Getter
@@ -9,10 +11,10 @@ import java.sql.Date;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReviewResource {
+public class ReviewResourceId {
     private Long id;
-    private Traveler traveler;
-    private Plan plan;
+    private TravelerResourceId traveler;
+    private PlanResourceId plan;
     private String date;
     private String rating;
     private String comment;

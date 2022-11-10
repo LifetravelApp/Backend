@@ -1,10 +1,12 @@
 package com.api.lifetravel.users.domain.model.entity;
+import com.api.lifetravel.reviews.domain.model.entity.Review;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
@@ -34,5 +36,8 @@ public class Traveler {
     @NotBlank
     @Size(min = 9, max = 9)
     private String phone;
+
+    @OneToMany(mappedBy= "traveler")
+    private List<Review> reviews;
 
 }

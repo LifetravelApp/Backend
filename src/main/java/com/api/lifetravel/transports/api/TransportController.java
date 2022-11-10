@@ -26,12 +26,12 @@ public class TransportController {
     private final TransportMapper transportMapper;
 
     // Create a GET method to get all the transports
-//    @GetMapping
-//    public Page<TransportResource> getAll(@ParameterObject Pageable pageable) {
-//        return transportMapper.modelListPage(transportService.getAll(), pageable);
-//    }
+    @GetMapping
+    public Page<TransportResource> getAll(@ParameterObject Pageable pageable) {
+        return transportMapper.modelListPage(transportService.getAll(), pageable);
+    }
 
-    // Create the POST method to create a new transport
+//     Create the POST method to create a new transport
     @PostMapping
     public ResponseEntity<TransportResource> create(@RequestBody CreateTransportResource resource) {
         Transport transportInput = transportMapper.toModel(resource);

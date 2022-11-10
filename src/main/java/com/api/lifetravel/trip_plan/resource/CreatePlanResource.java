@@ -69,5 +69,5 @@ public class CreatePlanResource {
 
     @NotNull
     @NotBlank
-    private String image;
+    private String thumbnail;
 }

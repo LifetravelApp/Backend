@@ -3,6 +3,7 @@ package com.api.lifetravel.users.api;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import com.api.lifetravel.users.mapping.AgencyMapper;
 import com.api.lifetravel.users.resource.AgencyResource;
+import com.api.lifetravel.users.resource.AgencyResourceId;
 import com.api.lifetravel.users.resource.CreateAgencyResource;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;

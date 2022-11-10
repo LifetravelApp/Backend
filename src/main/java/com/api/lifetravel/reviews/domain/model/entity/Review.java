@@ -1,7 +1,10 @@
 package com.api.lifetravel.reviews.domain.model.entity;
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.api.lifetravel.users.domain.model.entity.Traveler;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -20,18 +23,20 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn (name = "package_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn (name = "package_id", referencedColumnName="id", nullable = false)
+    @JsonIgnore
     private Plan plan;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn (name = "traveler_id", referencedColumnName="id", nullable = false)
+    @JsonIgnore
+    private Traveler traveler;
 
     @NotNull
     @NotBlank
     @Column(unique = true)
-    private Date date;
-
-    @ManyToOne
-    @JoinColumn (name = "traveler_id")
-    private Traveler traveler;
+    private String date;
     
     @NotNull
     @Column

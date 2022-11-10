@@ -13,16 +13,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TransportResource {
-
-    // return the fields of the Transport entity
     private Long id;
     private String type;
     private String seats;
     private String departureDate;
     private String returnDate;
     private String price;
-    private Traveler traveler;
-    private Plan plan;
-    private List<TransportImage> transportImages;
+//    private List<TransportImage> transportImages;
 
 }

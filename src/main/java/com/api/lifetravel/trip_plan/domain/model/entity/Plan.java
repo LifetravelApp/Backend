@@ -1,4 +1,5 @@
 package com.api.lifetravel.trip_plan.domain.model.entity;
+import com.api.lifetravel.reviews.domain.model.entity.Review;
 import com.api.lifetravel.transports.domain.model.entity.Transport;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import lombok.*;
@@ -7,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,18 +23,12 @@ public class Plan {
     private Long id;
 
     @ManyToOne
-    @JoinColumn (name = "agency_id")
+    @JoinColumn (name = "agency_id",referencedColumnName="id")
     private Agency agency;
 
     @OneToOne
-    @JoinColumn(name = "transport_id")
+    @JoinColumn(name = "transport_id",referencedColumnName="id")
     private Transport transport;
-
-    /*
-    @OneToMany
-    @JoinColumn (name = "reviews_id")
-    private Reviews reviews;
-    */
 
     @NotNull
     @NotBlank
@@ -72,4 +68,7 @@ public class Plan {
     @NotNull
     @NotBlank
     private String thumbnail;
+
+    @OneToMany
+    private List<Review> reviews;
 }

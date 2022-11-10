@@ -6,6 +6,9 @@ import com.api.lifetravel.accommodations.mapping.AccommodationMapper;
 import com.api.lifetravel.accommodations.resource.CreateAccommodationResource;
 import com.api.lifetravel.accommodations.resource.AccommodationResource;
 import lombok.AllArgsConstructor;
+import org.springdoc.api.annotations.ParameterObject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,18 +23,20 @@ public class AccommodationController {
 
     private final AccommodationMapper accommodationMapper;
 
-    // Create a GET method to get all the accommodations
-//    @GetMapping
-//    public Page<AccommodationResource> getAll(@ParameterObject Pageable pageable) {
-//        return accommodationMapper.modelListPage(accommodationService.getAll(), pageable);
-//    }
+    @GetMapping
+    public Page<AccommodationResource> getAll(@ParameterObject Pageable pageable) {
+        return accommodationMapper.modelListPage(accommodationService.getAll(), pageable);
+    }
 
     // Create the POST method to create a new accommodation
     @PostMapping
     public ResponseEntity<AccommodationResource> create(@RequestBody CreateAccommodationResource resource) {
         Accommodation accommodationInput = accommodationMapper.toModel(resource);
+
         Accommodation accommodationSaved = accommodationService.create(accommodationInput);
         AccommodationResource accommodationResource = accommodationMapper.toResource(accommodationSaved);
+
+
         return new ResponseEntity<>(accommodationResource, HttpStatus.CREATED); // 201
     }
 

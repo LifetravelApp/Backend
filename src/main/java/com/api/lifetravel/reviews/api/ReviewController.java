@@ -6,6 +6,7 @@ import com.api.lifetravel.reviews.mapping.ReviewMapper;
 
 import com.api.lifetravel.reviews.resource.CreateReviewResource;
 import com.api.lifetravel.reviews.resource.ReviewResource;
+import com.api.lifetravel.reviews.resource.ReviewResourceId;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS, RequestMethod.HEAD})
 @RestController
-@RequestMapping(value = "api/v1/review", produces = "application/json")
+@RequestMapping(value = "api/v1/reviews", produces = "application/json")
 @AllArgsConstructor
 public class ReviewController {
 
@@ -29,11 +30,12 @@ public class ReviewController {
 
     @GetMapping
     @Operation(summary = "Get all reviews")
-    public Page<ReviewResource> getAllReviews(@ParameterObject Pageable pageable) {
-        return reviewMapper.modelListPage(reviewService.getAll(), pageable);
+    public Page<ReviewResourceId> getAllReviews(@ParameterObject Pageable pageable) {
+        return reviewMapper.modelListPageId(reviewService.getAll(), pageable);
     }
 
     @PostMapping
+    @Operation(summary = "Create a review")
     public ResponseEntity<ReviewResource> createReview(@RequestBody CreateReviewResource resource) {
         Review reviewInput = reviewMapper.toModel(resource);
         Review reviewSaved = reviewService.create(reviewInput);

@@ -32,6 +32,7 @@ public class PlanController {
     }
 
     @PostMapping
+    @Operation(summary = "Create a package")
     public ResponseEntity<PlanResource>createPlan(@RequestBody CreatePlanResource resource){
         Plan planInput = planMapper.toModel(resource);
         Plan planSaved = planService.create(planInput);
@@ -40,6 +41,7 @@ public class PlanController {
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update a package")
     public ResponseEntity<PlanResource> updatePlan(@PathVariable Long id, @RequestBody CreatePlanResource resource) {
         Plan planInput = planMapper.toModel(resource);
         Plan planSaved = planService.update(id, planInput);
@@ -48,6 +50,7 @@ public class PlanController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a package")
     public ResponseEntity<PlanResource> deletePlan(@PathVariable Long id) {
         Plan plan = planService.delete(id);
         PlanResource planResource = planMapper.toResource(plan);

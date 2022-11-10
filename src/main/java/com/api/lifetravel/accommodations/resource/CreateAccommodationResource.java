@@ -2,6 +2,7 @@ package com.api.lifetravel.accommodations.resource;
 
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.api.lifetravel.users.domain.model.entity.Agency;
+import com.api.lifetravel.users.resource.AgencyResourceId;
 import lombok.*;
 
 import javax.persistence.*;
@@ -14,9 +15,10 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateAccommodationResource {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
+    @NotNull
+    @NotBlank
+    private AgencyResourceId agency;
 
     // Create a new attribute for the returnDate
     @NotNull

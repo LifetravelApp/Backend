@@ -1,5 +1,7 @@
 package com.api.lifetravel.accommodations.domain.model.entity;
+import com.api.lifetravel.accommodations.domain.service.AccommodationService;
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
+import com.api.lifetravel.users.domain.model.entity.Agency;
 import lombok.*;
 
 import javax.persistence.*;
@@ -36,15 +38,15 @@ public class Accommodation {
     private String price;
 
     // Create a OneToOne relation with the Agency
-//    @OneToOne
-//    @JoinColumn(name = "agency_id")
-//    private Agency agency;
+    @OneToOne
+    @JoinColumn(name = "agency_id",referencedColumnName="id")
+    private Agency agency;
 
 //    @OneToMany(mappedBy = "accommodation")
-//    private List<Services> services;
+//    private List<AccommodationServiceEntity> services;
 //
 //    @OneToMany(mappedBy = "accommodation")
-//    private List<Conditions> conditions;
+//    private List<AccommodationCondition> conditions;
 //
 //    @OneToMany(mappedBy = "accommodation")
 //    private List<AccommodationImages> accommodationImages;
