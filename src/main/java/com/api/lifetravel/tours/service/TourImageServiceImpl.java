@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ConstraintViolation;
-import javax.xml.validation.Validator;
+import javax.validation.Validator;
 import java.util.List;
 import java.util.Set;
 
