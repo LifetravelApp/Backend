@@ -1,4 +1,5 @@
 package com.api.lifetravel.trip_plan.domain.model.entity;
+import com.api.lifetravel.transports.domain.model.entity.Transport;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import lombok.*;
 
@@ -22,11 +23,17 @@ public class Plan {
     @ManyToOne
     @JoinColumn (name = "agency_id")
     private Agency agency;
+
+    @OneToOne
+    @JoinColumn(name = "transport_id")
+    private Transport transport;
+
     /*
     @OneToMany
     @JoinColumn (name = "reviews_id")
     private Reviews reviews;
     */
+
     @NotNull
     @NotBlank
     @Size(max= 60)
@@ -64,5 +71,5 @@ public class Plan {
 
     @NotNull
     @NotBlank
-    private String image;
+    private String thumbnail;
 }
