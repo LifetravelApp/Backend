@@ -2,6 +2,9 @@ package com.api.lifetravel.trip_plan.domain.model.entity;
 import com.api.lifetravel.reviews.domain.model.entity.Review;
 import com.api.lifetravel.transports.domain.model.entity.Transport;
 import com.api.lifetravel.users.domain.model.entity.Agency;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,14 +24,6 @@ public class Plan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne
-    @JoinColumn (name = "agency_id",referencedColumnName="id")
-    private Agency agency;
-
-    @OneToOne
-    @JoinColumn(name = "transport_id",referencedColumnName="id")
-    private Transport transport;
 
     @NotNull
     @NotBlank
@@ -69,6 +64,16 @@ public class Plan {
     @NotBlank
     private String thumbnail;
 
-    @OneToMany
+    @ManyToOne
+    @JoinColumn (name = "agency_id")
+    private Agency agency;
+
+    @OneToOne
+    @JoinColumn(name = "transport_id")
+    private Transport transport;
+
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "plan", cascade = CascadeType.ALL)
     private List<Review> reviews;
 }

@@ -1,5 +1,6 @@
 package com.api.lifetravel.users.api;
 
+import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import com.api.lifetravel.users.mapping.AgencyMapper;
 import com.api.lifetravel.users.resource.AgencyResource;
@@ -16,6 +17,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS, RequestMethod.HEAD})
 @RestController
@@ -34,6 +38,7 @@ public class AgencyController {
     }
 
     @PostMapping
+    @Operation(summary = "Create a new agency")
     public ResponseEntity<AgencyResource> createAgency(@RequestBody CreateAgencyResource resource) {
         Agency agencyInput = agencyMapper.toModel(resource);
         Agency agencySaved = agencyService.create(agencyInput);
@@ -42,6 +47,7 @@ public class AgencyController {
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update an agency")
     public ResponseEntity<AgencyResource> updateAgency(@PathVariable Long id, @RequestBody CreateAgencyResource resource) {
         Agency agencyInput = agencyMapper.toModel(resource);
         Agency agencyUpdated = agencyService.update(id, agencyInput);
@@ -50,6 +56,7 @@ public class AgencyController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete an agency")
     public ResponseEntity<AgencyResource> deleteAgency(@PathVariable Long id) {
         Agency agency = agencyService.delete(id);
         AgencyResource agencyResource = agencyMapper.toResource(agency);

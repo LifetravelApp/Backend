@@ -19,20 +19,20 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS, RequestMethod.HEAD})
 @RestController
-@RequestMapping(value = "api/v1/packages", produces = "application/json")
+@RequestMapping(value = "api/v1/plans", produces = "application/json")
 @AllArgsConstructor
 public class PlanController {
     private final PlanService planService;
     private final PlanMapper planMapper;
 
     @GetMapping
-    @Operation(summary = "Get all packages")
+    @Operation(summary = "Get all plans")
     public Page<PlanResource>getAllPlans(@ParameterObject Pageable pageable){
         return planMapper.modelListPage(planService.getAll(),pageable);
     }
 
     @PostMapping
-    @Operation(summary = "Create a package")
+    @Operation(summary = "Create a plan")
     public ResponseEntity<PlanResource>createPlan(@RequestBody CreatePlanResource resource){
         Plan planInput = planMapper.toModel(resource);
         Plan planSaved = planService.create(planInput);
@@ -41,7 +41,7 @@ public class PlanController {
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Update a package")
+    @Operation(summary = "Update a plan")
     public ResponseEntity<PlanResource> updatePlan(@PathVariable Long id, @RequestBody CreatePlanResource resource) {
         Plan planInput = planMapper.toModel(resource);
         Plan planSaved = planService.update(id, planInput);
@@ -50,14 +50,12 @@ public class PlanController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Delete a package")
+    @Operation(summary = "Delete a plan")
     public ResponseEntity<PlanResource> deletePlan(@PathVariable Long id) {
         Plan plan = planService.delete(id);
         PlanResource planResource = planMapper.toResource(plan);
         return new ResponseEntity<>(planResource, HttpStatus.OK); // 200
     }
-
-
 
 }
 

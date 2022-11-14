@@ -34,7 +34,7 @@ public class TransportImageMapper implements Serializable {
         return modelMapper.map(resource, TransportImage.class);
     }
 
-    public TransportImageResource toResource(TransportImage review) {
-        return modelMapper.map(review, TransportImageResource.class);
+    public TransportImageResource toResource(TransportImage image) {
+        return modelMapper.map(image, TransportImageResource.class);
     }
 }

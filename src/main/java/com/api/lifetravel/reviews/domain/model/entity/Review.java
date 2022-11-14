@@ -23,16 +23,6 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn (name = "package_id", referencedColumnName="id", nullable = false)
-    @JsonIgnore
-    private Plan plan;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn (name = "traveler_id", referencedColumnName="id", nullable = false)
-    @JsonIgnore
-    private Traveler traveler;
-
     @NotNull
     @NotBlank
     @Column(unique = true)
@@ -47,4 +37,14 @@ public class Review {
     @NotBlank
     @Size(max= 300)
     private String comment;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn (name = "package_id", referencedColumnName="id", nullable = false)
+    @JsonIgnore
+    private Plan plan;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn (name = "traveler_id", referencedColumnName="id", nullable = false)
+    @JsonIgnore
+    private Traveler traveler;
 }

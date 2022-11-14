@@ -1,10 +1,12 @@
 package com.api.lifetravel.accommodations.api;
 
-import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
 import com.api.lifetravel.accommodations.domain.service.AccommodationService;
 import com.api.lifetravel.accommodations.mapping.AccommodationMapper;
-import com.api.lifetravel.accommodations.resource.CreateAccommodationResource;
 import com.api.lifetravel.accommodations.resource.AccommodationResource;
+import com.api.lifetravel.accommodations.resource.AccommodationResourceId;
+import com.api.lifetravel.accommodations.resource.CreateAccommodationResource;
+import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
 import org.springframework.data.domain.Page;
@@ -24,12 +26,13 @@ public class AccommodationController {
     private final AccommodationMapper accommodationMapper;
 
     @GetMapping
+    @Operation(summary = "Get all accommodations")
     public Page<AccommodationResource> getAll(@ParameterObject Pageable pageable) {
         return accommodationMapper.modelListPage(accommodationService.getAll(), pageable);
     }
 
-    // Create the POST method to create a new accommodation
     @PostMapping
+    @Operation(summary = "Create a new accommodation")
     public ResponseEntity<AccommodationResource> create(@RequestBody CreateAccommodationResource resource) {
         Accommodation accommodationInput = accommodationMapper.toModel(resource);
 
@@ -40,8 +43,8 @@ public class AccommodationController {
         return new ResponseEntity<>(accommodationResource, HttpStatus.CREATED); // 201
     }
 
-    // Create the PUT method to update a accommodation
     @PutMapping("/{id}")
+    @Operation(summary = "Update an accommodation")
     public ResponseEntity<AccommodationResource> update(@PathVariable Long id, @RequestBody CreateAccommodationResource resource) {
         Accommodation accommodationInput = accommodationMapper.toModel(resource);
         Accommodation accommodationUpdated = accommodationService.update(id, accommodationInput);
@@ -50,8 +53,8 @@ public class AccommodationController {
         return new ResponseEntity<>(accommodationResource, HttpStatus.OK); // 200
     }
 
-    // Create the DELETE method to delete a accommodation
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete an accommodation")
     public ResponseEntity<AccommodationResource> delete(@PathVariable Long id) {
         Accommodation accommodation = accommodationService.delete(id);
         AccommodationResource accommodationResource = accommodationMapper.toResource(accommodation);

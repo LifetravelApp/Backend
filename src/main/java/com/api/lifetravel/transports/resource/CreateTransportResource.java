@@ -3,6 +3,7 @@ package com.api.lifetravel.transports.resource;
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -40,13 +41,13 @@ public class CreateTransportResource {
     private String price;
 
     // Create a OneToOne relation with the Agency
-    @OneToOne
-    @JoinColumn(name = "agency_id")
-    private Agency agency;
+//    @OneToOne
+//    @JoinColumn(name = "agency_id")
+//    private Agency agency;
 
     // Create a OneToOne relation with the Plan
-    @OneToOne
-    @JoinColumn(name = "plan_id")
-    private Plan plan;
+//    @OneToOne
+//    @JoinColumn(name = "plan_id")
+//    private Plan plan;
 
 }

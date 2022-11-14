@@ -36,4 +36,12 @@ public class ReviewServicelmpl implements ReviewService {
 
         return reviewRepository.save(review);
     }
+
+    @Override
+    public Review delete(Long id) {
+        Review review = reviewRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
+        reviewRepository.delete(review);
+        return review;
+    }
+
 }

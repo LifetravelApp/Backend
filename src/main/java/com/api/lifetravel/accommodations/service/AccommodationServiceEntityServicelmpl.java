@@ -1,8 +1,8 @@
 package com.api.lifetravel.accommodations.service;
 
-import com.api.lifetravel.accommodations.domain.model.entity.AccommodationServiceEntity;
 import com.api.lifetravel.accommodations.domain.persistence.AccommodationServiceEntityRepository;
 import com.api.lifetravel.accommodations.domain.service.AccommodationServiceEntityService;
+import com.api.lifetravel.accommodations.domain.model.entity.AccommodationServiceEntity;
 import com.api.lifetravel.shared.exception.ResourceValidationException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

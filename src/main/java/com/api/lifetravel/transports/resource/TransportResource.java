@@ -19,6 +19,5 @@ public class TransportResource {
     private String departureDate;
     private String returnDate;
     private String price;
-//    private List<TransportImage> transportImages;
-
+    private List<TransportImageResource> transportImages;
 }

@@ -1,5 +1,7 @@
 package com.api.lifetravel.trip_plan.resource;
 
+import com.api.lifetravel.accommodations.resource.AccommodationResource;
+import com.api.lifetravel.transports.resource.TransportResource;
 import com.api.lifetravel.transports.resource.TransportResourceId;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import com.api.lifetravel.users.resource.AgencyResource;
@@ -13,8 +15,10 @@ import lombok.*;
 @AllArgsConstructor
 public class PlanResource {
     private Long id;
-    private AgencyResourceId agency;
-    private TransportResourceId transport;
+    private AgencyResource agency;
+    private TransportResource transport;
+    private AccommodationResource accommodation;
+//    private Tour tour;
     private String name;
     private String description;
     private String duration;

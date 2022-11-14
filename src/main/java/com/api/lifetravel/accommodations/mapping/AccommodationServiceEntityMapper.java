@@ -1,8 +1,8 @@
 package com.api.lifetravel.accommodations.mapping;
 
-import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
 import com.api.lifetravel.accommodations.resource.AccommodationResource;
 import com.api.lifetravel.accommodations.resource.CreateAccommodationResource;
+import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
 import com.api.lifetravel.shared.mapping.EnhancedModelMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

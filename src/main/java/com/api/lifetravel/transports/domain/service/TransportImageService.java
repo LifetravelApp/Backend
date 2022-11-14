@@ -8,7 +8,7 @@ public interface TransportImageService {
     List<TransportImage> getAll();
     TransportImage create(TransportImage image);
 
-    TransportImage update(Long id, TransportImage review);
+    TransportImage update(Long id, TransportImage image);
 
     TransportImage delete(Long id);
 }

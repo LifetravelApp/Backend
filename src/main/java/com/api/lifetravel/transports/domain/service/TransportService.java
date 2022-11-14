@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface TransportService {
     List<Transport> getAll();
-    Transport create(Transport review);
+    Transport create(Transport transport);
 
-    Transport update(Long id,Transport review);
+    Transport update(Long id,Transport transport);
 
     Transport delete(Long id);
 }

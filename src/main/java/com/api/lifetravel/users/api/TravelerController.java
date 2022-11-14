@@ -31,6 +31,7 @@ public class TravelerController {
     }
 
     @PostMapping
+    @Operation(summary = "Create a new traveler")
     public ResponseEntity<TravelerResource> createTraveler(@RequestBody CreateTravelerResource resource) {
         Traveler travelerInput = travelerMapper.toModel(resource);
         Traveler travelerSaved = travelerService.create(travelerInput);
@@ -39,6 +40,7 @@ public class TravelerController {
     }
 
     @PutMapping("/{id}")
+    @Operation(summary = "Update a traveler")
     public ResponseEntity<TravelerResource> updateTraveler(@PathVariable Long id, @RequestBody CreateTravelerResource resource) {
         Traveler travelerInput = travelerMapper.toModel(resource);
         Traveler travelerSaved = travelerService.update(id, travelerInput);
@@ -47,6 +49,7 @@ public class TravelerController {
     }
 
     @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a traveler")
     public ResponseEntity<TravelerResource> deleteTraveler(@PathVariable Long id) {
         Traveler traveler = travelerService.delete(id);
         TravelerResource travelerResource = travelerMapper.toResource(traveler);

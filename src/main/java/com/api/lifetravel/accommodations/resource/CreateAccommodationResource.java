@@ -20,17 +20,14 @@ public class CreateAccommodationResource {
     @NotBlank
     private AgencyResourceId agency;
 
-    // Create a new attribute for the returnDate
     @NotNull
     @NotBlank
     private String details;
 
-    // Create a new attribute for the returnDate
     @NotNull
     @NotBlank
     private String location;
 
-    // Create a new attribute for the price
     @NotNull
     @NotBlank
     private String price;

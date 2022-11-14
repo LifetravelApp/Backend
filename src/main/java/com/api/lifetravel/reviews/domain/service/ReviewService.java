@@ -8,4 +8,7 @@ import java.util.List;
 public interface ReviewService {
     List<Review> getAll();
     Review create(Review review);
+
+    Review delete(Long id);
+
 }

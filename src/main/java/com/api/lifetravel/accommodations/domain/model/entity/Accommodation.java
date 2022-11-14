@@ -1,8 +1,11 @@
 package com.api.lifetravel.accommodations.domain.model.entity;
-import com.api.lifetravel.accommodations.domain.service.AccommodationService;
-import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.api.lifetravel.users.domain.model.entity.Agency;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -22,33 +25,38 @@ public class Accommodation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Create a new attribute for the returnDate
     @NotNull
     @NotBlank
     private String details;
 
-    // Create a new attribute for the returnDate
     @NotNull
     @NotBlank
     private String location;
 
-    // Create a new attribute for the price
     @NotNull
     @NotBlank
     private String price;
 
-    // Create a OneToOne relation with the Agency
-    @OneToOne
-    @JoinColumn(name = "agency_id",referencedColumnName="id")
+    @ManyToOne
+    @JoinColumn(name = "agency_id")
     private Agency agency;
 
-//    @OneToMany(mappedBy = "accommodation")
-//    private List<AccommodationServiceEntity> services;
+//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//    @JsonIdentityReference(alwaysAsId = true)
+//    @LazyCollection(LazyCollectionOption.FALSE)
+//    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL)
+//    private List<AccommodationServiceEntity> accommodationServices;
 //
-//    @OneToMany(mappedBy = "accommodation")
-//    private List<AccommodationCondition> conditions;
-//
-//    @OneToMany(mappedBy = "accommodation")
-//    private List<AccommodationImages> accommodationImages;
+//    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+//    @JsonIdentityReference(alwaysAsId = true)
+//    @LazyCollection(LazyCollectionOption.FALSE)
+//    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL)
+//    private List<AccommodationCondition> accommodationConditions;
+
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL)
+    private List<AccommodationImage> accommodationImages;
 
 }

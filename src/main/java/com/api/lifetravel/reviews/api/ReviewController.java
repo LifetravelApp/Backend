@@ -43,4 +43,12 @@ public class ReviewController {
         return new ResponseEntity<>(reviewResource, HttpStatus.CREATED); // 201
     }
 
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete a review")
+    public ResponseEntity<ReviewResource> deleteReview(@PathVariable Long id) {
+        Review review = reviewService.delete(id);
+        ReviewResource reviewResource = reviewMapper.toResource(review);
+        return new ResponseEntity<>(reviewResource, HttpStatus.OK); // 200
+    }
+
 }
