@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class TourResource {
     private Long id;
+    private Long agencyId;
     private String details;
     private String location;
     private String meetingPoint;
