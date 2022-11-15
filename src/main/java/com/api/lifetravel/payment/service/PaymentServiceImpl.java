@@ -3,8 +3,8 @@ package com.api.lifetravel.payment.service;
 import com.api.lifetravel.payment.domain.model.entity.Payment;
 import com.api.lifetravel.payment.domain.persistence.PaymentRepository;
 import com.api.lifetravel.payment.domain.service.PaymentService;
-import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
-import com.api.lifetravel.trip_plan.domain.persistence.PlanRepository;
+
+import com.api.lifetravel.shared.exception.ResourceValidationException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

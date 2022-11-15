@@ -1,9 +1,7 @@
 package com.api.lifetravel.payment.resource;
 
 
-import com.api.lifetravel.transports.resource.TransportResourceId;
 import com.api.lifetravel.trip_plan.resource.PlanResourceId;
-import com.api.lifetravel.users.resource.AgencyResourceId;
 import com.api.lifetravel.users.resource.TravelerResourceId;
 import lombok.*;
 

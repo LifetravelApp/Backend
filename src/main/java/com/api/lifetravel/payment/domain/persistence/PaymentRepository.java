@@ -1,4 +1,11 @@
 package com.api.lifetravel.payment.domain.persistence;
 
-public interface PaymentRepository {
+import com.api.lifetravel.payment.domain.model.entity.Payment;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PaymentRepository extends JpaRepository<Payment,Long> {
+
+
 }
