@@ -1,5 +1,5 @@
 package com.api.lifetravel.users.domain.model.entity;
-//import com.api.lifetravel.shared.domain.model.AuditModel;
+import com.api.lifetravel.shared.domain.model.AuditModel;
 import lombok.*;
 
 import javax.persistence.*;
