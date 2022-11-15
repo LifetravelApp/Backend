@@ -1,6 +1,7 @@
 package com.api.lifetravel.transports.resource;
 
 import com.api.lifetravel.users.domain.model.entity.Agency;
+import com.api.lifetravel.users.resource.AgencyResourceId;
 import lombok.*;
 
 import javax.persistence.*;
@@ -33,8 +34,12 @@ public class CreateTransportResource {
     @NotBlank
     private String price;
 
-    @ManyToOne
-    @JoinColumn(name = "agency_id")
-    private Agency agency;
+    @NotNull
+    @NotBlank
+    private AgencyResourceId agency;
+
+//    @ManyToOne
+//    @JoinColumn(name = "agency_id")
+//    private Agency agency;
 
 }

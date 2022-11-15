@@ -21,6 +21,6 @@ public class CreateAccommodationImageResource {
 
     @OneToOne
     @JoinColumn(name = "accommodation_id")
-    private Accommodation accommodation;
+    private AccommodationResourceId accommodation;
 
 }
