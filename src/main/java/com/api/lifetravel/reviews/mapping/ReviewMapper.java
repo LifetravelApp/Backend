@@ -28,12 +28,8 @@ public class ReviewMapper implements Serializable {
         return new ReviewMapper(modelMapper);
     }
 
-//    public Page<ReviewResource> modelListPage(List<Review> modelList, Pageable pageable) {
-//        return new PageImpl<>(modelMapper.mapList(modelList, ReviewResource.class), pageable, modelList.size());
-//    }
-
-    public Page<ReviewResourceId> modelListPageId(List<Review> modelList, Pageable pageable) {
-        return new PageImpl<>(modelMapper.mapList(modelList, ReviewResourceId.class), pageable, modelList.size());
+    public Page<ReviewResource> modelListPage(List<Review> modelList, Pageable pageable) {
+        return new PageImpl<>(modelMapper.mapList(modelList, ReviewResource.class), pageable, modelList.size());
     }
 
     public Review toModel(CreateReviewResource resource) {

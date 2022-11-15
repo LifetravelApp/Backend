@@ -1,7 +1,9 @@
 package com.api.lifetravel.reviews.resource;
 
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
+import com.api.lifetravel.trip_plan.resource.PlanResourceId;
 import com.api.lifetravel.users.domain.model.entity.Traveler;
+import com.api.lifetravel.users.resource.TravelerResourceId;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,14 +20,6 @@ import java.sql.Date;
 public class CreateReviewResource {
 
     @NotNull
-    @NotBlank
-    private Plan plan;
-
-    @NotNull
-    @NotBlank
-    private Traveler traveler;
-
-    @NotNull
     @Column(unique = true)
     private String date;
 
@@ -38,6 +32,16 @@ public class CreateReviewResource {
     @NotBlank
     @Size(max= 300)
     private String comment;
+
+    @ManyToOne
+    @JoinColumn(name = "plan_id")
+    private PlanResourceId plan;
+
+    @NotNull
+    @NotBlank
+    @ManyToOne
+    @JoinColumn(name = "traveler_id")
+    private TravelerResourceId traveler;
 
 
 }

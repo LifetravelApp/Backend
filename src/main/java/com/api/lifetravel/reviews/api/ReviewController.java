@@ -30,8 +30,8 @@ public class ReviewController {
 
     @GetMapping
     @Operation(summary = "Get all reviews")
-    public Page<ReviewResourceId> getAllReviews(@ParameterObject Pageable pageable) {
-        return reviewMapper.modelListPageId(reviewService.getAll(), pageable);
+    public Page<ReviewResource> getAllReviews(@ParameterObject Pageable pageable) {
+        return reviewMapper.modelListPage(reviewService.getAll(), pageable);
     }
 
     @PostMapping
