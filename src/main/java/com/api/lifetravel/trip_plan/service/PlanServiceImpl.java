@@ -47,14 +47,11 @@ public class PlanServiceImpl implements PlanService {
 
         Plan plan = planRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
 
-        plan.setName(plan.getName());
+        plan.setName(planInput.getName());
         plan.setDescription(planInput.getDescription());
         plan.setDuration(planInput.getDuration());
-        plan.setTypeOfPackage(planInput.getTypeOfPackage());
-        plan.setTypeOfTour(planInput.getTypeOfTour());
         plan.setCapacity(planInput.getCapacity());
-        plan.setDisponibility(plan.getDisponibility());
-        plan.setAgency(plan.getAgency());
+        plan.setThumbnail(planInput.getThumbnail());
 
         return planRepository.save(plan);
     }

@@ -1,5 +1,6 @@
 package com.api.lifetravel.reviews.domain.model.entity;
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
+import com.api.lifetravel.users.domain.model.entity.Agency;
 import com.api.lifetravel.users.domain.model.entity.Traveler;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
@@ -25,7 +26,6 @@ public class Review {
 
     @NotNull
     @NotBlank
-    @Column(unique = true)
     private String date;
     
     @NotNull
@@ -38,13 +38,11 @@ public class Review {
     @Size(max= 300)
     private String comment;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn (name = "package_id", referencedColumnName="id", nullable = false)
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "plan_id")
     private Plan plan;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn (name = "traveler_id", referencedColumnName="id", nullable = false)
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "traveler_id")
     private Traveler traveler;
 }

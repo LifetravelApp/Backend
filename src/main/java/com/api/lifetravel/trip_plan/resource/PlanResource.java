@@ -1,12 +1,16 @@
 package com.api.lifetravel.trip_plan.resource;
 
 import com.api.lifetravel.accommodations.resource.AccommodationResource;
+import com.api.lifetravel.reviews.domain.model.entity.Review;
+import com.api.lifetravel.reviews.resource.ReviewResource;
 import com.api.lifetravel.transports.resource.TransportResource;
 import com.api.lifetravel.transports.resource.TransportResourceId;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import com.api.lifetravel.users.resource.AgencyResource;
 import com.api.lifetravel.users.resource.AgencyResourceId;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,16 +19,16 @@ import lombok.*;
 @AllArgsConstructor
 public class PlanResource {
     private Long id;
-    private AgencyResource agency;
-    private TransportResource transport;
-    private AccommodationResource accommodation;
-//    private Tour tour;
+    private Long agencyId;
+    private Long transportId;
+    private Long accommodationId;
     private String name;
     private String description;
     private String duration;
-    private String typeOfPackage;
-    private String typeOfTour;
     private String capacity;
-    private String disponibility;
     private String thumbnail;
+    private List<ReviewResource> reviews;
+    //    private String typeOfPackage;
+    //    private String typeOfTour;
+    //    private String disponibility;
 }
