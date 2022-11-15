@@ -17,7 +17,7 @@ public class AccommodationResource {
     private String details;
     private String location;
     private String price;
-//    private AgencyResourceId agency;
+    private Long agencyId;
     private List<AccommodationImageResource> accommodationImages;
 //    private List<AccommodationServiceEntity> services;
 //    private List<AccommodationCondition> conditions;

@@ -11,8 +11,8 @@ import java.sql.Date;
 @AllArgsConstructor
 public class ReviewResource {
     private Long id;
-    private Traveler traveler;
-    private Plan plan;
+    private Long travelerId;
+    private Long planId;
     private String date;
     private String rating;
     private String comment;

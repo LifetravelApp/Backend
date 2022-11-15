@@ -22,7 +22,7 @@ public class TransportImageMapper implements Serializable {
 
     @Autowired
     private EnhancedModelMapper modelMapper;
-    public TransportImageMapper reviewMapper() {
+    public TransportImageMapper transportImageMapper() {
         return new TransportImageMapper(modelMapper);
     }
 

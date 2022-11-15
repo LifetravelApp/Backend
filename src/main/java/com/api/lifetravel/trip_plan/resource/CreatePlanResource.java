@@ -1,7 +1,11 @@
 package com.api.lifetravel.trip_plan.resource;
 
+import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
+import com.api.lifetravel.accommodations.resource.AccommodationResourceId;
 import com.api.lifetravel.transports.domain.model.entity.Transport;
+import com.api.lifetravel.transports.resource.TransportResourceId;
 import com.api.lifetravel.users.domain.model.entity.Agency;
+import com.api.lifetravel.users.resource.AgencyResourceId;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -19,19 +23,18 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class CreatePlanResource {
 
-    @ManyToOne
-    @JoinColumn(name = "agency_id")
-    private Agency agency;
+    @NotNull
+    @NotBlank
+    private AgencyResourceId agency;
 
-    @OneToOne
-    @JoinColumn(name = "transport_id")
-    private Transport transport;
+    @NotNull
+    @NotBlank
+    private TransportResourceId transport;
 
-    /*
-    @OneToMany
-    @JoinColumn (name = "reviews_id")
-    private ;
-    */
+    @NotNull
+    @NotBlank
+    private AccommodationResourceId accommodation;
+
     @NotNull
     @NotBlank
     @Size(max= 60)
@@ -48,15 +51,15 @@ public class CreatePlanResource {
     @Size(max= 31, min=1)
     private String duration;
 
-    @NotNull
-    @NotBlank
-    @Size(max=255)
-    private String typeOfPackage ;
-
-    @NotNull
-    @NotBlank
-    @Size(max=255)
-    private String typeOfTour ;
+//    @NotNull
+//    @NotBlank
+//    @Size(max=255)
+//    private String typeOfPackage ;
+//
+//    @NotNull
+//    @NotBlank
+//    @Size(max=255)
+//    private String typeOfTour ;
 
     @NotNull
     @NotBlank

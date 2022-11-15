@@ -32,12 +32,6 @@ public class TransportController {
         return transportMapper.modelListPage(transportService.getAll(), pageable);
     }
 
-//    @GetMapping
-//    @Operation(summary = "Get all transports")
-//    public List<Transport> getAll() {
-//        return transportService.getAll();
-//    }
-
     @PostMapping
     @Operation(summary = "Create a transport")
     public ResponseEntity<TransportResource> create(@RequestBody CreateTransportResource resource) {
