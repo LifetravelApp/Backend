@@ -19,7 +19,7 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "agency_id")
     private Agency agency;
 

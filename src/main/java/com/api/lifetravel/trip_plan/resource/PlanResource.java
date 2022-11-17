@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class PlanResource {
     private Long id;
-    private Long agencyId;
+    private String agencyName;
     private Long transportId;
     private Long accommodationId;
     private String name;
@@ -28,7 +28,4 @@ public class PlanResource {
     private String capacity;
     private String thumbnail;
     private List<ReviewResource> reviews;
-    //    private String typeOfPackage;
-    //    private String typeOfTour;
-    //    private String disponibility;
 }

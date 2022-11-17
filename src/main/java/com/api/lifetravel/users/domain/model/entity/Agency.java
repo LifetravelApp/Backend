@@ -57,11 +57,11 @@ public class Agency {
     @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL)
     private List<Accommodation> accommodations;
 
-    //    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-//    @JsonIdentityReference(alwaysAsId = true)
-//    @LazyCollection(LazyCollectionOption.FALSE)
-//    @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL)
-//    private List<Transport> tours;
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "agency", cascade = CascadeType.ALL)
+    private List<Transport> tours;
 
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)

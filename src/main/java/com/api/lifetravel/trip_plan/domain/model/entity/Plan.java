@@ -53,20 +53,6 @@ public class Plan {
     @NotBlank
     private String thumbnail;
 
-//    @NotNull
-//    @NotBlank
-//    @Size(max=255)
-//    private String typeOfTour;
-
-//    @NotNull
-//    @NotBlank
-//    @Size(max=255)
-//    private String typeOfPackage ;
-//
-//    @NotNull
-//    @NotBlank
-//    private String disponibility;
-
     @ManyToOne
     @JoinColumn (name = "agency_id")
     private Agency agency;
@@ -76,7 +62,7 @@ public class Plan {
     private Transport transport;
 
     @OneToOne
-    @JoinColumn(name = "accmmodation_id")
+    @JoinColumn(name = "accommodation_id")
     private Accommodation accommodation;
 
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")

@@ -46,7 +46,7 @@ public class Transport {
     @NotBlank
     private String price;
 
-    @OneToOne(mappedBy = "transport")
+    @OneToOne(mappedBy = "transport", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
     private Plan plan;
 
     @ManyToOne
