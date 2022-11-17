@@ -62,4 +62,9 @@ public class PlanServiceImpl implements PlanService {
         planRepository.delete(plan);
         return plan;
     }
+
+    @Override
+    public List<Plan> insert(List<Plan> plans) {
+        return planRepository.saveAll(plans);
+    }
 }

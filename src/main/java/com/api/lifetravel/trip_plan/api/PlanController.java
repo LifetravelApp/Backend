@@ -17,6 +17,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS, RequestMethod.HEAD})
 @RestController
 @RequestMapping(value = "api/v1/plans", produces = "application/json")
@@ -36,8 +38,21 @@ public class PlanController {
     public ResponseEntity<PlanResource>createPlan(@RequestBody CreatePlanResource resource){
         Plan planInput = planMapper.toModel(resource);
         Plan planSaved = planService.create(planInput);
+
+        // modificar el atributo "disponibility" del transportId, accommodationId y tourId a false
+
         PlanResource planResource = planMapper.toResource(planSaved);
         return new ResponseEntity<>(planResource , HttpStatus.CREATED);//201
+    }
+
+    // insert a lot of plans in the database
+    @PostMapping("/insert")
+    @Operation(summary = "Insert a lot of plans")
+    public ResponseEntity<List<PlanResource>>insertPlans(@RequestBody List<CreatePlanResource> resources){
+        List<Plan> plans = planMapper.toModelList(resources);
+        List<Plan> plansSaved = planService.insert(plans);
+        List<PlanResource> plansResource = planMapper.toResourceList(plansSaved);
+        return new ResponseEntity<>(plansResource , HttpStatus.CREATED);//201
     }
 
     @PutMapping("/{id}")

@@ -30,4 +30,11 @@ public class PlanMapper implements Serializable {
     public PlanResource toResource(Plan plan){return modelMapper.map(plan,PlanResource.class);}
 
 
+    public List<Plan> toModelList(List<CreatePlanResource> resources) {
+        return modelMapper.mapList(resources, Plan.class);
+    }
+
+    public List<PlanResource> toResourceList(List<Plan> plans) {
+        return modelMapper.mapList(plans, PlanResource.class);
+    }
 }

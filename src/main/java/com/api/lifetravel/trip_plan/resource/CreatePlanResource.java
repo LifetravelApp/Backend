@@ -51,16 +51,6 @@ public class CreatePlanResource {
     @Size(max= 31, min=1)
     private String duration;
 
-//    @NotNull
-//    @NotBlank
-//    @Size(max=255)
-//    private String typeOfPackage ;
-//
-//    @NotNull
-//    @NotBlank
-//    @Size(max=255)
-//    private String typeOfTour ;
-
     @NotNull
     @NotBlank
     @Size(max=15)
@@ -73,4 +63,14 @@ public class CreatePlanResource {
     @NotNull
     @NotBlank
     private String thumbnail;
+
+    //    @NotNull
+//    @NotBlank
+//    @Size(max=255)
+//    private String typeOfPackage ;
+//
+//    @NotNull
+//    @NotBlank
+//    @Size(max=255)
+//    private String typeOfTour ;
 }

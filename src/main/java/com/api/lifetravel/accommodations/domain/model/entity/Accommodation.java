@@ -1,4 +1,5 @@
 package com.api.lifetravel.accommodations.domain.model.entity;
+import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
@@ -40,6 +41,9 @@ public class Accommodation {
     @ManyToOne
     @JoinColumn(name = "agency_id")
     private Agency agency;
+
+    @OneToOne(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    private Plan plan;
 
 //    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 //    @JsonIdentityReference(alwaysAsId = true)

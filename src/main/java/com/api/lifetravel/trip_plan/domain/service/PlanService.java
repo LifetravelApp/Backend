@@ -12,4 +12,6 @@ public interface PlanService {
     Plan update(Long id, Plan planInput);
 
     Plan delete(Long id);
+
+    List<Plan> insert(List<Plan> plans);
 }
