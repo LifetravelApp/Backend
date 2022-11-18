@@ -33,6 +33,13 @@ public class PlanController {
         return planMapper.modelListPage(planService.getAll(),pageable);
     }
 
+    // get plan by id
+    @GetMapping("/{id}")
+    @Operation(summary = "Get plan by id")
+    public PlanResource getPlanById(@PathVariable Long id){
+        return planMapper.toResource(planService.getPlanById(id));
+    }
+
     @PostMapping
     @Operation(summary = "Create a plan")
     public ResponseEntity<PlanResource>createPlan(@RequestBody CreatePlanResource resource){

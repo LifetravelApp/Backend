@@ -26,6 +26,11 @@ public class TravelerServiceImpl implements TravelerService{
     }
 
     @Override
+    public Traveler getById(Long id) {
+        return travelerRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
+    }
+
+    @Override
     public Traveler create(Traveler traveler) {
         // Validating traveler object
         Set<ConstraintViolation<Traveler>> violations = validator.validate(traveler);

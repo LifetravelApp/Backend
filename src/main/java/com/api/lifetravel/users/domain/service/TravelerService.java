@@ -8,6 +8,8 @@ public interface TravelerService {
 
     List<Traveler> getAll();
 
+    Traveler getById(Long id);
+
     Traveler create(Traveler agency);
 
     Traveler update(Long id, Traveler agencyInput);

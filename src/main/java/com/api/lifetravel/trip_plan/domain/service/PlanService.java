@@ -7,6 +7,9 @@ import java.util.List;
 public interface PlanService {
 
     List<Plan> getAll();
+
+    Plan getPlanById(Long id);
+
     Plan create(Plan plan);
 
     Plan update(Long id, Plan planInput);

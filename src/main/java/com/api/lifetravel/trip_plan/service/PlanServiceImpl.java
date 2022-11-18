@@ -25,6 +25,9 @@ public class PlanServiceImpl implements PlanService {
     public List<Plan> getAll(){ return planRepository.findAll();}
 
     @Override
+    public Plan getPlanById(Long id){ return planRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));}
+
+    @Override
     public Plan create(Plan plan) {
         // Validating agency object
         Set<ConstraintViolation<Plan>> violations =validator.validate(plan);

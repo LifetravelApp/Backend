@@ -30,6 +30,12 @@ public class TravelerController {
         return travelerMapper.modelListPage(travelerService.getAll(), pageable);
     }
 
+    @GetMapping("/{id}")
+    @Operation(summary = "Get traveler by id")
+    public TravelerResource getTravelerById(@PathVariable Long id) {
+        return travelerMapper.toResource(travelerService.getById(id));
+    }
+
     @PostMapping
     @Operation(summary = "Create a new traveler")
     public ResponseEntity<TravelerResource> createTraveler(@RequestBody CreateTravelerResource resource) {
