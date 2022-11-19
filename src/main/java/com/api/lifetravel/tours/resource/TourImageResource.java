@@ -1,4 +1,4 @@
-package com.api.lifetravel.accommodations.resource;
+package com.api.lifetravel.tours.resource;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class AccommodationImageResource {
+public class TourImageResource {
     private Long id;
     private String path;
 }

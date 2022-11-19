@@ -2,6 +2,8 @@ package com.api.lifetravel.tours.resource;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @With
@@ -15,4 +17,5 @@ public class TourResource {
     private String meetingPoint;
     private String price;
     private String available;
+    private List<TourImageResource> tourImages;
 }
