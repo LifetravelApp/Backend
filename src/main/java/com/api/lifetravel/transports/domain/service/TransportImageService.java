@@ -1,6 +1,6 @@
 package com.api.lifetravel.transports.domain.service;
 
-import com.api.lifetravel.transports.domain.model.entity.Transport;
+
 import com.api.lifetravel.transports.domain.model.entity.TransportImage;
 import java.util.List;
 
