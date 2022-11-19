@@ -1,4 +1,4 @@
-package com.api.lifetravel.transports.resource;
+package com.api.lifetravel.tours.resource;
 
 import lombok.*;
 
@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class CreateTransportImageResource {
+public class CreateTourImageResource {
 
     @NotNull
     @NotBlank
@@ -20,6 +20,7 @@ public class CreateTransportImageResource {
     @NotNull
     @NotBlank
     @OneToOne
-    @JoinColumn(name = "transport_id")
-    private TransportResourceId transport;
+    @JoinColumn(name = "tour_id")
+    private TourResourceId tour;
+
 }
