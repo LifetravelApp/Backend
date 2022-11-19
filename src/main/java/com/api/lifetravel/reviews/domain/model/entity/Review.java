@@ -38,11 +38,11 @@ public class Review {
     @Size(max= 300)
     private String comment;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "plan_id")
     private Plan plan;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "traveler_id")
     private Traveler traveler;
 }

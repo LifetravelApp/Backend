@@ -38,11 +38,12 @@ public class Accommodation {
     @NotBlank
     private String price;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "agency_id")
     private Agency agency;
 
-    @OneToOne(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+//    @OneToOne(mappedBy = "accommodation", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     private Plan plan;
 
 //    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
@@ -60,7 +61,7 @@ public class Accommodation {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany(mappedBy = "accommodation", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "accommodation",fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     private List<AccommodationImage> accommodationImages;
 
 }

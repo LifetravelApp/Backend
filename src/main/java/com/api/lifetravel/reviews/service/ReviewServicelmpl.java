@@ -8,6 +8,7 @@ import com.api.lifetravel.shared.exception.ResourceValidationException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.util.List;
@@ -26,6 +27,7 @@ public class ReviewServicelmpl implements ReviewService {
         return reviewRepository.findAll();
     }
 
+    @Transactional
     @Override
     public Review create(Review review) {
         Set<ConstraintViolation<Review>> violations = validator.validate(review);

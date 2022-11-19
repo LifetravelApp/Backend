@@ -30,7 +30,7 @@ public class PlanServiceImpl implements PlanService {
     @Override
     public Plan create(Plan plan) {
         // Validating agency object
-        Set<ConstraintViolation<Plan>> violations =validator.validate(plan);
+        Set<ConstraintViolation<Plan>> violations = validator.validate(plan);
 
         if (!violations.isEmpty()) {
             throw new ResourceValidationException(ENTITY, violations);

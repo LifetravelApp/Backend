@@ -46,7 +46,7 @@ public class Traveler {
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany( mappedBy = "traveler", cascade = CascadeType.ALL)
+    @OneToMany( mappedBy = "traveler", fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     private List<Review> reviews;
 
 }
