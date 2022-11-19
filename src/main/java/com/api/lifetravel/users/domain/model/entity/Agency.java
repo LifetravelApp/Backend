@@ -1,8 +1,6 @@
 package com.api.lifetravel.users.domain.model.entity;
 import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
-import com.api.lifetravel.shared.domain.model.AuditModel;
 import com.api.lifetravel.transports.domain.model.entity.Transport;
-import com.api.lifetravel.transports.domain.model.entity.TransportImage;
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
@@ -10,8 +8,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -35,6 +31,7 @@ public class Agency {
     @NotNull
     @NotBlank
     @Size(max= 60)
+    @Column(unique = true)
     private String name;
 
     @Column
