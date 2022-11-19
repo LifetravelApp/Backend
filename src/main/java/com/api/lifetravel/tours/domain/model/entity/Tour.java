@@ -1,12 +1,19 @@
 package com.api.lifetravel.tours.domain.model.entity;
 
+import com.api.lifetravel.accommodations.domain.model.entity.AccommodationImage;
 import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.api.lifetravel.users.domain.model.entity.Agency;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Getter
 @Setter
@@ -45,6 +52,12 @@ public class Tour {
 
     @OneToOne(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
     private Plan plan;
+
+    @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+    @JsonIdentityReference(alwaysAsId = true)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy = "tour",fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    private List<TourImage> tourImages;
 
 
 }
