@@ -31,4 +31,7 @@ public class CreateTourResource {
     @NotNull
     @NotBlank
     private String  price;
+
+    private String available;
+
 }

@@ -17,6 +17,7 @@ public class TransportResource {
     private String departureDate;
     private String returnDate;
     private String price;
+    private String available;
     private Long agencyId;
     private List<TransportImageResource> transportImages;
 }

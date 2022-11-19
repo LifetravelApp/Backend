@@ -1,6 +1,7 @@
 package com.api.lifetravel.trip_plan.domain.model.entity;
 import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
 import com.api.lifetravel.reviews.domain.model.entity.Review;
+import com.api.lifetravel.tours.domain.model.entity.Tour;
 import com.api.lifetravel.transports.domain.model.entity.Transport;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -66,6 +67,10 @@ public class Plan {
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "accommodation_id")
     private Accommodation accommodation;
+
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @JoinColumn(name = "tour_id")
+    private Tour tour;
 
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)

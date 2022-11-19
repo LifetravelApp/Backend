@@ -48,6 +48,9 @@ public class Transport {
     @NotBlank
     private String price;
 
+    @Column(columnDefinition = "varchar(255) default 'true'")
+    private String available;
+
     @OneToOne(mappedBy = "transport", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
     private Plan plan;
 

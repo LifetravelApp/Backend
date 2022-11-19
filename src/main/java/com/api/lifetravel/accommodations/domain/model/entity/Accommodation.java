@@ -38,6 +38,10 @@ public class Accommodation {
     @NotBlank
     private String price;
 
+    // create a field called available
+    @Column(columnDefinition = "varchar(255) default 'true'")
+    private String available;
+
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "agency_id")
     private Agency agency;

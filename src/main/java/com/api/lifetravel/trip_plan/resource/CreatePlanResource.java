@@ -2,6 +2,7 @@ package com.api.lifetravel.trip_plan.resource;
 
 import com.api.lifetravel.accommodations.domain.model.entity.Accommodation;
 import com.api.lifetravel.accommodations.resource.AccommodationResourceId;
+import com.api.lifetravel.tours.resource.TourResourceId;
 import com.api.lifetravel.transports.domain.model.entity.Transport;
 import com.api.lifetravel.transports.resource.TransportResourceId;
 import com.api.lifetravel.users.domain.model.entity.Agency;
@@ -34,6 +35,10 @@ public class CreatePlanResource {
     @NotNull
     @NotBlank
     private AccommodationResourceId accommodation;
+
+    @NotNull
+    @NotBlank
+    private TourResourceId tour;
 
     @NotNull
     @NotBlank

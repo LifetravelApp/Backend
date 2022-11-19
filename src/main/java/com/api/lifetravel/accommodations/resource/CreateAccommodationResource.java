@@ -32,4 +32,6 @@ public class CreateAccommodationResource {
     @NotBlank
     private String price;
 
+    private String available;
+
 }

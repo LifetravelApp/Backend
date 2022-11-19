@@ -1,5 +1,6 @@
 package com.api.lifetravel.tours.domain.model.entity;
 
+import com.api.lifetravel.trip_plan.domain.model.entity.Plan;
 import com.api.lifetravel.users.domain.model.entity.Agency;
 import lombok.*;
 
@@ -19,10 +20,6 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
-    @JoinColumn(name = "agency_id")
-    private Agency agency;
-
     @NotNull
     @NotBlank
     private String details;
@@ -38,4 +35,16 @@ public class Tour {
     @NotNull
     @NotBlank
     private String price;
+
+    @Column(columnDefinition = "varchar(255) default 'true'")
+    private String available;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @JoinColumn(name = "agency_id")
+    private Agency agency;
+
+    @OneToOne(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    private Plan plan;
+
+
 }

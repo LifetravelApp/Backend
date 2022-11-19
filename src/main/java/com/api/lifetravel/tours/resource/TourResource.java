@@ -14,5 +14,5 @@ public class TourResource {
     private String location;
     private String meetingPoint;
     private String price;
-
+    private String available;
 }

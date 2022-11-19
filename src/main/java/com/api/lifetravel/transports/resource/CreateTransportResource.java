@@ -38,6 +38,8 @@ public class CreateTransportResource {
     @NotBlank
     private AgencyResourceId agency;
 
+    private String available;
+
 //    @ManyToOne
 //    @JoinColumn(name = "agency_id")
 //    private Agency agency;
