@@ -10,4 +10,5 @@ import lombok.*;
 public class AccommodationImageResource {
     private Long id;
     private String path;
+    private String accommodationId;
 }

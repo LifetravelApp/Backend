@@ -11,6 +11,6 @@ import lombok.*;
 public class TransportImageResource {
 
     private Long id;
+    private Long transportId;
     private String path;
-//    private TransportResourceId transport;
 }

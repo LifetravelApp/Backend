@@ -37,6 +37,13 @@ public class AgencyController {
         return agencyMapper.modelListPage(agencyService.getAll(), pageable);
     }
 
+    // obtener agencia por id
+    @GetMapping("/{id}")
+    @Operation(summary = "Get agency by id")
+    public AgencyResource getAgencyById(@PathVariable Long id) {
+        return agencyMapper.toResource(agencyService.getAgencyById(id));
+    }
+
     @PostMapping
     @Operation(summary = "Create a new agency")
     public ResponseEntity<AgencyResource> createAgency(@RequestBody CreateAgencyResource resource) {
