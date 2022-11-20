@@ -27,6 +27,11 @@ public class TourServiceImpl implements TourService {
         return tourRepository.findAll();
     }
 
+    @Override
+    public Tour getById(Long id) {
+        return tourRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
+    }
+
     // create the create method for the Transport
     @Override
     public Tour create(Tour tour) {

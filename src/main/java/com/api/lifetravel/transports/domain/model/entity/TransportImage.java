@@ -25,7 +25,7 @@ public class TransportImage {
     private String path;
 
     // Create a ManyToOne relationship with Transport
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "transport_id")
     private Transport transport;
 

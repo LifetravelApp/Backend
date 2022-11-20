@@ -26,6 +26,11 @@ public class AccommodationServicelmpl implements AccommodationService {
         return accommodationRepository.findAll();
     }
 
+    @Override
+    public Accommodation getById(Long id) {
+        return accommodationRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
+    }
+
     // create the create method for the Transport
     @Override
     public Accommodation create(Accommodation accommodation) {

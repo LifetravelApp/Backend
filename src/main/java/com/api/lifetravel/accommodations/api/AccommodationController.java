@@ -31,6 +31,12 @@ public class AccommodationController {
         return accommodationMapper.modelListPage(accommodationService.getAll(), pageable);
     }
 
+    @GetMapping("/{id}")
+    @Operation(summary = "Get accommodation by id")
+    public AccommodationResource getById(@PathVariable Long id) {
+        return accommodationMapper.toResource(accommodationService.getById(id));
+    }
+
     @PostMapping
     @Operation(summary = "Create a new accommodation")
     public ResponseEntity<AccommodationResource> create(@RequestBody CreateAccommodationResource resource) {

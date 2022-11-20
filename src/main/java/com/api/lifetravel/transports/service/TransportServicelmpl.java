@@ -26,6 +26,11 @@ public class TransportServicelmpl implements TransportService {
         return transportRepository.findAll();
     }
 
+    @Override
+    public Transport getById(Long id) {
+        return transportRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
+    }
+
     // create the create method for the Transport
     @Override
     public Transport create(Transport transport) {

@@ -35,6 +35,12 @@ public class TourController {
         return tourMapper.modelListPage(tourService.getAll(), pageable);
     }
 
+    @GetMapping("/{id}")
+    @Operation(summary = "Get tour by id")
+    public TourResource getById(@PathVariable Long id) {
+        return tourMapper.toResource(tourService.getById(id));
+    }
+
     @PostMapping
     @Operation(summary = "Create a tour")
     public ResponseEntity<TourResource> create(@RequestBody CreateTourResource resource) {

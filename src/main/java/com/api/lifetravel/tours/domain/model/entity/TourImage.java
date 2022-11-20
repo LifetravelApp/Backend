@@ -28,7 +28,7 @@ public class TourImage {
     private String path;
 
     // Create a ManyToOne relationship with Transport
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "tour_id")
     private Tour tour;
 
