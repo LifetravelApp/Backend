@@ -23,7 +23,7 @@ public class AccommodationImage {
     @Column
     private String path;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "accommodation_id")
     private Accommodation accommodation;
 

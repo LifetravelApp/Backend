@@ -8,6 +8,8 @@ public interface TourService {
 
     List<Tour>getAll();
     Tour create(Tour tour);
+
+    Tour getById(Long id);
     Tour update(Long id , Tour tour);
     Tour delete(Long id);
 

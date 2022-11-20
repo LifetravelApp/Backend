@@ -20,15 +20,15 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "plans_id")
-    private Plan plan;;
-
     @NotNull
     @NotBlank
     private String price;
 
-    @ManyToOne
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    @JoinColumn(name = "plans_id")
+    private Plan plan;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JoinColumn(name = "traveler_id")
     private Traveler traveler;
 

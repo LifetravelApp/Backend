@@ -9,6 +9,8 @@ public interface TransportService {
     List<Transport> getAll();
     Transport create(Transport transport);
 
+    Transport getById(Long id);
+
     Transport update(Long id,Transport transport);
 
     Transport delete(Long id);

@@ -26,6 +26,11 @@ public class AgencyServiceImpl implements AgencyService{
     }
 
     @Override
+    public Agency getAgencyById(Long id) {
+        return agencyRepository.findById(id).orElseThrow(() -> new ResourceValidationException(ENTITY, "id", id));
+    }
+
+    @Override
     public Agency create(Agency agency) {
         // Validating agency object
         Set<ConstraintViolation<Agency>> violations = validator.validate(agency);

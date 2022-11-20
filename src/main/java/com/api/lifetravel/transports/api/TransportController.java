@@ -32,6 +32,12 @@ public class TransportController {
         return transportMapper.modelListPage(transportService.getAll(), pageable);
     }
 
+    @GetMapping("/{id}")
+    @Operation(summary = "Get transport by id")
+    public TransportResource getById(@PathVariable Long id) {
+        return transportMapper.toResource(transportService.getById(id));
+    }
+
     @PostMapping
     @Operation(summary = "Create a transport")
     public ResponseEntity<TransportResource> create(@RequestBody CreateTransportResource resource) {

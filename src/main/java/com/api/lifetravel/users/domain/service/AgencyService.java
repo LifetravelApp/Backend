@@ -8,6 +8,8 @@ public interface AgencyService{
 
     List<Agency> getAll();
 
+    Agency getAgencyById(Long id);
+
     Agency create(Agency agency);
 
     Agency update(Long id, Agency agencyInput);

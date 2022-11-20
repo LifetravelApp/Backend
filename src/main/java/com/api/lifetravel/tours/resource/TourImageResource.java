@@ -10,4 +10,5 @@ import lombok.*;
 public class TourImageResource {
     private Long id;
     private String path;
+    private String tourId;
 }
